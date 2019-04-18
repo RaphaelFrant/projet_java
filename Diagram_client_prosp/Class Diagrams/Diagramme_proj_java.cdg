@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="test">
+  <ClassDiagramComponents>
+    <Class name="Entreprise" package="" visibility="public" isAbstract="true" xPosition="255.0" yPosition="37.0">
+      <Fields>
+        <Field name="IdEntrep" type="int" visibility="private"/>
+        <Field name="RaisonSociale" type="string" visibility="private"/>
+        <Field name="TypeEntrep" type="string" visibility="private"/>
+        <Field name="DomaineEntrep" type="string" visibility="private"/>
+        <Field name="AdrEntrep" type="string" visibility="private"/>
+        <Field name="TelEntrep" type="int" visibility="private"/>
+        <Field name="NbrEmpEntrep" type="long" visibility="private"/>
+        <Field name="CommentaireEntrep" type="string" visibility="private"/>
+        <Field name="CaEntrep" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Modification" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Client" package="" visibility="public" xPosition="16.0" yPosition="327.0">
+      <Fields>
+        <Field name="DateDebContr" type="datetime" visibility="private"/>
+        <Field name="MontantCLient" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="FormModif" returnType="Client" visibility="public"/>
+        <Method name="Modification" returnType="void" visibility="public"/>
+        <Method name="ClientCreation" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Prospect" package="" visibility="public" xPosition="494.0" yPosition="123.0">
+      <Fields>
+        <Field name="DateProspection" type="datetime" visibility="private"/>
+        <Field name="Interesse" type="string" visibility="private"/>
+        <Field name="DernIdEntr" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="FormModif" returnType="Prospect" visibility="public"/>
+        <Method name="RecupDernIdProsp" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="NouvIdProsp" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="Modification" returnType="void" visibility="public"/>
+        <Method name="ProspCreation" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Classe Connexion" package="" visibility="public" isAbstract="true" xPosition="943.0" yPosition="68.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Connection" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Bdd Client" package="" visibility="public" xPosition="1017.0" yPosition="334.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="RecupClient" returnType="arraylist" visibility="public" isStatic="true"/>
+        <Method name="CreaClient" returnType="void" visibility="public"/>
+        <Method name="ChoixCmbBox" returnType="arraylist" visibility="public" isStatic="true"/>
+        <Method name="ModifCli" returnType="void" visibility="public"/>
+        <Method name="FormModifClient" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Bdd Prospect" package="" visibility="public" xPosition="1017.0" yPosition="607.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="RecupProspect" returnType="arraylist" visibility="public" isStatic="true"/>
+        <Method name="CreaProsp" returnType="void" visibility="public"/>
+        <Method name="ChoixCmbBox" returnType="arraylist" visibility="public" isStatic="true"/>
+        <Method name="ModifProsp" returnType="void" visibility="public"/>
+        <Method name="FormModifProsp" returnType="void" visibility="public"/>
+        <Method name="RecupMaxIdProsp" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="formClient" package="" visibility="public" xPosition="336.0" yPosition="472.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="formAccueil" package="" visibility="public" xPosition="660.0" yPosition="524.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="formProspect" package="" visibility="public" xPosition="517.0" yPosition="647.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="formAffichage" package="" visibility="public" xPosition="1270.0" yPosition="505.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="formAffichage" target="Bdd Prospect" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="formAccueil" target="Bdd Prospect" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="formProspect" target="Bdd Prospect" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="formClient" target="Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Bdd Prospect" target="Bdd Client"/>
+    <UseRelation name="" source="formAffichage" target="Bdd Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Client" target="Entreprise"/>
+    <UseRelation name="" source="formAccueil" target="Bdd Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="Client" target="Bdd Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="formClient" target="Bdd Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Prospect" target="Entreprise"/>
+    <UseRelation name="" source="formProspect" target="Prospect" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Bdd Client" target="Classe Connexion"/>
+    <UseRelation name="" source="Prospect" target="Bdd Prospect" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
